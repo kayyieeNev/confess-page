@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confess Buat Kamu</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+    }
+    .confess-box {
+      background-color: #fffaff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 30px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+      animation: popIn 1s ease-out;
+    }
+    .confess-text {
+      font-size: 1.2em;
+      color: #333;
+      white-space: pre-wrap;
+      text-align: left;
+      border-left: 4px solid #ff80ab;
+      padding-left: 10px;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+  <div class="confess-box">
+    <div id="text" class="confess-text"></div>
+    <audio autoplay>
+      <source src="https://files.catbox.moe/nyjkfg.mp4" type="audio/mp4">
+    </audio>
+  </div>  <script>
+    const msg = `hai kamu,
+
+aku cuma mau bilang...
+kalo aku suka sama kamu >///<
+makasih udah bikin hariku lebih ceria!
+
+mau ga jadi temen spesialku? hehe~`
+
+    const textEl = document.getElementById("text")
+    let i = 0
+
+    function typeChar() {
+      if (i < msg.length) {
+        textEl.innerHTML += msg.charAt(i)
+        i++
+        setTimeout(typeChar, 50)
+      }
+    }
+
+    window.onload = typeChar
+  </script></body>
+</html>
